@@ -1,0 +1,107 @@
+---
+title: "Vulnerabilities"
+description: "Explore and manage security vulnerabilities across your organization"
+---
+
+## Overview
+
+The Vulnerabilities lake serves as your central hub for viewing and managing all security vulnerabilities discovered by your connected scanners. This comprehensive view helps you quickly identify, prioritize, and track security issues across your entire organization.
+
+## What You'll See
+
+### Vulnerability Metrics
+
+At the top of the page, you'll find summary metrics including:
+- Total number of unresolved vulnerabilities
+- Breakdown by source
+- Breakdown by severity (Critical, High, Medium, Low)
+- SLA compliance Breakdown
+
+### Vulnerability List
+
+Each vulnerability is displayed as a card showing:
+- **Source**: Icon indicating the source scanner
+- **Title**: Description of the vulnerability and its origin
+- **Type**: Vulnerability type being addressed
+- **Severity**: Color-coded badge (Critical, High, Medium, Low)
+- **Origin**: Repository where the vulnerability was found
+- **Issue ID**: External reference link to the scanner's findings
+- **Detection Date**: When the vulnerability was first discovered
+- **SLA Status**: Time remaining or overdue indication
+- **Status**: Current state (Open, In Progress, Resolved, etc.)
+- **Remediation**: Link to associated remediation efforts
+
+## Filtering and Search
+
+Find specific vulnerabilities quickly using multiple filter options:
+
+<AccordionGroup>
+  <Accordion title="Available Filters">
+    - **Text Search**: Search by vulnerability title or description
+    - **Source**: Filter by the scanner that detected the issue
+    - **Type**: Filter by vulnerability type
+    - **Severity**: Show only specific severity levels
+    - **Origin**: Filter by repository name
+    - **Issue**: The vulnerability identifier
+    - **SLA**: Filter by time to SLA deadline
+    - **Status**: Filter by current vulnerability status
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Use multiple filters together to narrow down specific vulnerabilities. For example, filter for "Critical" severity in a specific repository to focus on high-priority issues.
+</Tip>
+
+## Working with Vulnerabilities
+
+### Viewing Details
+
+Click on any vulnerability card to open a detailed drawer showing:
+- Complete vulnerability description
+- Status and explanation about the state of the vulnerability
+- Affected packages and versions
+- Related vulnerabilities
+- Links to external resources (pull requests, tickets)
+
+### Taking Action
+
+From the vulnerability drawer, you can:
+- View the full vulnerability details and recommendations
+- Navigate to the source repository
+- Check associated remediation efforts
+- Access related pull requests or tickets
+
+## Navigation
+
+<Steps>
+  <Step title="Access the Page">
+    Click **Vulnerabilities** in the main navigation menu.
+  </Step>
+  <Step title="Browse or Filter">
+    Scroll through the list or use filters to find specific vulnerabilities.
+  </Step>
+  <Step title="View Details">
+    Click on any vulnerability card to see comprehensive information.
+  </Step>
+</Steps>
+
+## Understanding Severity Levels
+
+<CardGroup cols={2}>
+  <Card title="Critical" icon="skull-crossbones">
+    Requires immediate attention. Default SLA: 3 days.
+  </Card>
+  <Card title="High" icon="circle-exclamation">
+    Significant risk. Should be addressed quickly. Default SLA: 14 days.
+  </Card>
+  <Card title="Medium" icon="triangle-exclamation">
+    Moderate risk. Plan for resolution. Default SLA: 30 days.
+  </Card>
+  <Card title="Low" icon="circle-info">
+    Minor issues. Address as capacity allows. Default SLA: 90 days.
+  </Card>
+</CardGroup>
+
+<Note>
+  SLA timelines can be customized in [Settings](/settings/sla) to match your organization's security policies.
+</Note>

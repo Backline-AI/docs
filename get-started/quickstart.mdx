@@ -1,0 +1,81 @@
+---
+title: "Quick Start"
+description: "Get started with Backline in minutes"
+---
+
+## Welcome to Backline!
+
+Follow these simple steps to start managing your security vulnerabilities effectively.
+
+## Step 1: Connect Your SCM
+
+First, connect your source control management platform to allow Backline to access your repositories.
+
+<Steps>
+  <Step title="Navigate to Integration Hub">
+    Go to **Integrations** from the main navigation menu.
+  </Step>
+  <Step title="Choose Your SCM">
+    Select your source control platform:
+    - GitHub
+    - GitLab
+    - Bitbucket
+  </Step>
+  <Step title="Add image and packages registries">
+    - Connect your private registries where internal packages are being hosted so the agents can remediate across your codebase.
+    - Connect your image registries so the agents can identify vulnerabilities origin and suggest a safe fix plan
+  </Step>
+</Steps>
+
+## Step 2: Add Security Scanners
+
+Connect your security scanning tools to start collecting vulnerability data.
+
+<Steps>
+  <Step title="Open Integration Hub">
+    Return to the **Integrations** page if you're not already there.
+  </Step>
+  <Step title="Add Scanners">
+    Connect your preferred security scanners
+  </Step>
+  <Step title="Configure SLA">
+    Set up service level agreements for your organization in the **Settings** page
+  </Step>
+</Steps>
+
+## Step 3: Let Backline Work Its Magic
+
+Once your integrations are connected, Backline's agents will automatically:
+
+- **Collect** and de-duplicate vulnerabilities from all connected sources
+- **Analyze** severity and impact
+- **Plan** remediation steps
+- **Apply** the suggested remediation plan
+- **Verify** the change applied
+- **Monitor** deployment of the fix and SLA compliance
+
+<Note>
+  Initial collection of vulnerabilities may take a few minutes depending on the size of your security backlog.
+</Note>
+
+## Step 4: Explore Your Dashboard
+
+Head to the [Dashboard](/get-started/dashboard) to view:
+- Total vulnerabilities by severity
+- Active remediation efforts
+- SLA status and violations
+- Remediation pipeline and performance metrics
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Configure SLA" icon="clock" href="/settings/sla">
+    Set up service level agreements for your organization.
+  </Card>
+  <Card title="View Vulnerabilities" icon="bug" href="/get-started/vulnerabilities">
+    Explore all discovered vulnerabilities in detail.
+  </Card>
+  <Card title="Track Remediations" icon="screwdriver-wrench" href="/get-started/remediations">
+    Monitor ongoing remediation efforts.
+  </Card>
+</CardGroup>

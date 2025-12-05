@@ -1,0 +1,99 @@
+---
+title: "Jira Integration"
+description: "Sync vulnerabilities and remediations with Jira tickets"
+---
+
+## Overview
+
+The Jira integration connects Backline with your Jira instance, allowing you to automatically create tickets for vulnerabilities, track remediation work, and keep your security and development workflows in sync.
+
+## What You Can Do
+
+With the Jira integration, Backline can:
+- Automatically create Jira tickets for vulnerabilities
+- Sync vulnerability status with Jira issue status
+- Link remediations to existing Jira tickets
+- Update tickets when vulnerabilities are resolved
+- Track remediation work in your team's existing workflow
+
+## Prerequisites
+
+Before connecting Jira, ensure you have:
+- A Jira account (Cloud or Server)
+- Permission to create and manage issues
+- Admin access to install integrations (for Jira Cloud)
+- API token or credentials (for Jira Server)
+
+## Connecting Jira
+
+<Steps>
+  <Step title="Open Integration Hub">
+    Navigate to Integrations from the main menu.
+  </Step>
+  <Step title="Select Jira">
+    Find and click on the Jira integration card.
+  </Step>
+  <Step title="Choose Instance Type">
+    Select Jira Cloud or Jira Server/Data Center.
+  </Step>
+  <Step title="Authorize">
+    Follow the authorization flow for your Jira instance type.
+  </Step>
+  <Step title="Configure Settings">
+    Select your Jira project and configure ticket creation preferences.
+  </Step>
+  <Step title="Complete">
+    Finish the setup and return to Backline.
+  </Step>
+</Steps>
+
+## Permissions Required
+
+Backline needs the following Jira permissions:
+- Create and edit issues
+- Read project and issue information
+- Add comments to issues
+- Transition issue status
+
+<Note>
+  These permissions enable Backline to create and manage security-related tickets in your Jira projects.
+</Note>
+
+## Ticket Creation
+
+Configure how Backline creates Jira tickets:
+- **Automatic**: Create tickets for all vulnerabilities above a certain severity
+- **Manual**: Create tickets on demand from the Backline interface
+- **Project Selection**: Choose which Jira project receives tickets
+- **Issue Type**: Configure the issue type for vulnerability tickets
+
+## Status Synchronization
+
+Keep Backline and Jira in sync:
+- When a vulnerability is resolved in Backline, the Jira ticket is updated
+- When a Jira ticket is closed, the vulnerability status updates in Backline
+- Comments and updates flow between both systems
+
+## Managing the Integration
+
+### Updating Configuration
+To change Jira settings:
+1. Open the Integration Hub
+2. Click on the Jira integration
+3. Modify your project or ticket preferences
+4. Save changes
+
+### Disconnecting
+To remove the Jira integration:
+1. Go to the Integration Hub
+2. Click on the Jira integration
+3. Select **Disconnect**
+4. Confirm the disconnection
+
+<Warning>
+  Disconnecting will stop automatic ticket creation, but existing linked tickets will remain in Jira.
+</Warning>
+
+## Additional Configuration
+
+*More detailed configuration options will be available here.*

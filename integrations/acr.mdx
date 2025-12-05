@@ -1,0 +1,104 @@
+---
+title: "Azure ACR Integration"
+description: "Scan container images in Azure Container Registry"
+---
+
+## Overview
+
+The Azure ACR (Azure Container Registry) integration enables Backline to scan your container images hosted in Azure for security vulnerabilities. Ensure your containerized applications are secure before deployment.
+
+## What You Can Do
+
+With the ACR integration, Backline can:
+- Scan container images in your Azure registries
+- Analyze image layers for vulnerabilities
+- Detect security issues in dependencies
+- Track image security across versions
+- Monitor compliance with security policies
+
+## Prerequisites
+
+Before connecting ACR, ensure you have:
+- An Azure account with ACR registries
+- Azure Service Principal or credentials
+- Permission to access container registries
+- Registry login server information
+
+## Connecting ACR
+
+<Steps>
+  <Step title="Navigate to Integrations">
+    Go to the Integration Hub from the main menu.
+  </Step>
+  <Step title="Select ACR">
+    Find and click on the Azure ACR integration card.
+  </Step>
+  <Step title="Enter Registry Details">
+    Provide your ACR registry name and login server.
+  </Step>
+  <Step title="Add Credentials">
+    Enter your Azure Service Principal credentials or admin credentials.
+  </Step>
+  <Step title="Test Connection">
+    Click **Test Connection** to verify access.
+  </Step>
+  <Step title="Save">
+    Click **Save** to complete the integration.
+  </Step>
+</Steps>
+
+## Required Azure Permissions
+
+Your credentials need these ACR permissions:
+- Read access to repositories
+- Pull images
+- Read image manifests
+- List repository tags
+
+<Tip>
+  Use a Service Principal with Reader role on your ACR resource for secure, limited access.
+</Tip>
+
+## After Connection
+
+Once ACR is connected, Backline will:
+1. List all registries and repositories
+2. Begin scanning tagged images
+3. Analyze vulnerabilities in image layers
+4. Provide remediation guidance
+
+## Image Scanning
+
+Backline examines:
+- All images in connected registries
+- Base image vulnerabilities
+- Application dependencies within containers
+- Configuration weaknesses
+
+<Note>
+  Initial scans may take time depending on image size and quantity. Backline performs incremental scans for efficiency.
+</Note>
+
+## Managing the Integration
+
+### Updating Registry Access
+To modify credentials or registries:
+1. Open the Integration Hub
+2. Click on the ACR integration
+3. Update your registry details or credentials
+4. Test and save changes
+
+### Disconnecting
+To remove the ACR integration:
+1. Go to the Integration Hub
+2. Click on the ACR integration
+3. Select **Disconnect**
+4. Confirm the disconnection
+
+<Warning>
+  Disconnecting stops scanning of Azure container images. Existing findings remain but won't be refreshed.
+</Warning>
+
+## Additional Configuration
+
+*More detailed configuration options will be available here.*

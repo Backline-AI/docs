@@ -1,0 +1,137 @@
+---
+title: "Dashboard"
+description: "Monitor your risk exposure and remediation performance"
+---
+
+## Overview
+
+The Dashboard provides a comprehensive, at-a-glance view of your organization's risk exposure. Visualize vulnerability trends, track remediation progress, and identify areas requiring immediate attention.
+
+## Dashboard Components
+
+### Remediation Performance
+
+Monitor how effectively your team is addressing security issues:
+- Average resolution time
+- Success rates
+- Automated vs. hybrid remediation performance
+- SLA compliance rates
+
+### Vulnerabilities Summary
+
+Get an instant overview of your security landscape:
+- **Total Unresolved Vulnerabilities**: Current count of open security issues
+- **Severity Breakdown**: Distribution across Critical, High, Medium, and Low severities
+- **SLA Violations**: Number of vulnerabilities exceeding SLA deadlines
+
+<Tip>
+  Click on any severity level in the summary card to quickly filter and view those specific vulnerabilities.
+</Tip>
+
+### Remediation Summary
+
+Track your remediation efforts:
+- **Active Remediations**: Currently in-progress fixes
+- **Pending Remediations**: Fixes awaiting review or action
+- **Priority Distribution**: Breakdown of remediations by priority level
+
+<Tip>
+  Click on remediation counts to navigate to filtered views of the Remediations page.
+</Tip>
+
+### Remediation Pipeline
+
+An interactive Sankey chart visualizing the complete remediation workflow:
+- **Vulnerability Sources**: Where vulnerabilities originate
+- **Flow Paths**: Movement through different remediation stages
+- **Status Progression**: How vulnerabilities are being resolved
+
+**Interactive Features:**
+- Hover over flows to see detailed numbers
+- Click on specific paths to highlight the complete journey
+- Understand bottlenecks and success patterns
+
+### Vulnerabilities Timeline
+
+Track vulnerability trends over time:
+- Discovery patterns
+- Resolution rates
+- Accumulation trends
+- Historical comparisons
+
+Use this chart to:
+- Identify seasonal patterns
+- Measure improvement over time
+- Predict future vulnerability loads
+
+### Remediation Status
+
+Current state of all remediation efforts:
+- Completed remediations
+- In-progress work
+- Pending reviews
+- Failed attempts requiring attention
+
+## Using the Dashboard
+
+<Steps>
+  <Step title="Access the Dashboard">
+    Click **Dashboard** in the main navigation menu. This is typically your landing page after login.
+  </Step>
+  <Step title="Review Summary Cards">
+    Start at the top with vulnerability and remediation summaries to understand your current state.
+  </Step>
+  <Step title="Explore Visualizations">
+    Interact with the Remediation Pipeline chart to understand your workflow efficiency.
+  </Step>
+  <Step title="Identify Priorities">
+    Look for SLA violations, high severity vulnerabilities, or remediation bottlenecks.
+  </Step>
+  <Step title="Take Action">
+    Click on metrics to drill down into specific vulnerabilities or remediations.
+  </Step>
+</Steps>
+
+## Quick Actions
+
+The dashboard enables rapid navigation to areas requiring attention:
+
+<CardGroup cols={2}>
+  <Card title="Critical Vulnerabilities" icon="circle-exclamation">
+    Click the Critical severity count to view and address urgent issues.
+  </Card>
+  <Card title="SLA Violations" icon="clock">
+    Access overdue vulnerabilities directly from the violations count.
+  </Card>
+  <Card title="Pending Remediations" icon="pause">
+    Jump to remediations awaiting your review or approval.
+  </Card>
+  <Card title="Active Fixes" icon="gears">
+    Monitor currently running automated remediation efforts.
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Daily Check-in">
+    Start each day by reviewing the dashboard to:
+    - Check for new critical vulnerabilities
+    - Monitor SLA compliance
+    - Review overnight remediation progress
+  </Accordion>
+
+  <Accordion title="Weekly Analysis">
+    Use the timeline charts weekly to:
+    - Identify trends in vulnerability discovery
+    - Assess remediation velocity
+    - Adjust priorities based on patterns
+  </Accordion>
+
+  <Accordion title="Pipeline Optimization">
+    Regularly analyze the Sankey chart to:
+    - Find bottlenecks in your remediation process
+    - Optimize automated remediation settings
+    - Improve team workflows
+  </Accordion>
+</AccordionGroup>

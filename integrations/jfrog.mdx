@@ -1,0 +1,106 @@
+---
+title: "JFrog Artifactory Integration"
+description: "Scan artifacts and containers in JFrog Artifactory"
+---
+
+## Overview
+
+The JFrog Artifactory integration allows Backline to scan artifacts, packages, and container images stored in your JFrog Artifactory repositories for security vulnerabilities. Secure your software supply chain from development through deployment.
+
+## What You Can Do
+
+With the JFrog integration, Backline can:
+- Scan Docker images in Artifactory repositories
+- Analyze packages and dependencies
+- Detect vulnerabilities in artifacts
+- Monitor security across artifact versions
+- Track compliance with security policies
+
+## Prerequisites
+
+Before connecting JFrog, ensure you have:
+- A JFrog Artifactory instance (Cloud or Self-hosted)
+- Artifactory credentials or API key
+- Access to the repositories you want to scan
+- Repository URLs and names
+
+## Connecting JFrog Artifactory
+
+<Steps>
+  <Step title="Go to Integration Hub">
+    Navigate to Integrations from the main menu.
+  </Step>
+  <Step title="Select JFrog">
+    Find and click on the JFrog Artifactory integration card.
+  </Step>
+  <Step title="Enter Instance URL">
+    Provide your Artifactory server URL.
+  </Step>
+  <Step title="Add Credentials">
+    Enter your username and password or API token.
+  </Step>
+  <Step title="Select Repositories">
+    Choose which repositories Backline should scan.
+  </Step>
+  <Step title="Test Connection">
+    Click **Test Connection** to verify access.
+  </Step>
+  <Step title="Save">
+    Click **Save** to complete the integration.
+  </Step>
+</Steps>
+
+## Required Permissions
+
+Your JFrog credentials need:
+- Read access to repositories
+- Access to download artifacts
+- Permission to read repository metadata
+
+<Tip>
+  Create a dedicated user in Artifactory for Backline with read-only permissions to maintain security.
+</Tip>
+
+## After Connection
+
+Once JFrog is connected, Backline will:
+1. Discover repositories and artifacts
+2. Begin vulnerability scanning
+3. Analyze package dependencies
+4. Generate security recommendations
+
+## Scanning Capabilities
+
+Backline scans:
+- Docker images in Docker repositories
+- Maven, npm, PyPI, and other package formats
+- Binary artifacts
+- Dependencies and transitive dependencies
+
+<Note>
+  Large repositories may take time to scan initially. Backline prioritizes recent and frequently used artifacts.
+</Note>
+
+## Managing the Integration
+
+### Updating Configuration
+To change Artifactory settings:
+1. Open the Integration Hub
+2. Click on the JFrog integration
+3. Modify URL, credentials, or repository selection
+4. Test and save changes
+
+### Disconnecting
+To remove the JFrog integration:
+1. Go to the Integration Hub
+2. Click on the JFrog integration
+3. Select **Disconnect**
+4. Confirm your decision
+
+<Warning>
+  Disconnecting stops artifact scanning. Historical vulnerability data remains but won't be updated.
+</Warning>
+
+## Additional Configuration
+
+*More detailed configuration options will be available here.*

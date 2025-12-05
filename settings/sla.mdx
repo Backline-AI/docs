@@ -1,0 +1,166 @@
+---
+title: "SLA by Severity"
+description: "Configure service level agreements for vulnerability remediation"
+---
+
+## Overview
+
+SLA (Service Level Agreement) Settings allow you to define time-based targets for resolving security vulnerabilities based on their severity. These settings help your team prioritize work and ensure critical issues are addressed promptly.
+
+## What is SLA by Severity?
+
+SLA by Severity establish deadlines for vulnerability remediation:
+- Define maximum resolution times for each severity level
+- Track compliance with organizational security policies
+- Identify overdue vulnerabilities requiring immediate attention
+- Measure team performance against security standards
+
+## Accessing SLA by Severity
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Click on **Settings** in the main navigation menu.
+  </Step>
+  <Step title="Select SLA">
+    Choose **SLA** from the settings menu.
+  </Step>
+  <Step title="Configure">
+    View and modify SLA policies for different severity levels.
+  </Step>
+</Steps>
+
+## Default SLA Values
+
+Backline comes with recommended default SLA by Severity:
+
+<CardGroup cols={2}>
+  <Card title="Critical" icon="skull-crossbones">
+    **3 days** - Highest priority requiring immediate action
+  </Card>
+  <Card title="High" icon="circle-exclamation">
+    **14 days** - Significant risk requiring prompt resolution
+  </Card>
+  <Card title="Medium" icon="triangle-exclamation">
+    **30 days** - Moderate risk to be addressed within a month
+  </Card>
+  <Card title="Low" icon="circle-info">
+    **90 days** - Lower priority issues to be resolved within a quarter
+  </Card>
+</CardGroup>
+
+<Note>
+  These defaults align with industry best practices but can be customized to match your organization's security policies.
+</Note>
+
+## Configuring SLA Policies
+
+### Editing SLA Values
+
+<Steps>
+  <Step title="Review Current Settings">
+    The SLA page displays current deadline values for each severity level.
+  </Step>
+  <Step title="Modify Values">
+    Click on the input field for any severity level and enter a new number of days (0-999).
+  </Step>
+  <Step title="Review Changes">
+    The interface shows which values have been modified.
+  </Step>
+  <Step title="Save">
+    Click **Save** to apply your new SLA policies.
+  </Step>
+</Steps>
+
+<Tip>
+  New SLA settings will not be applied to all existing vulnerabilities.
+</Tip>
+
+## How SLAs Work
+
+### SLA Tracking
+
+Once configured, Backline:
+- Starts the SLA clock when a vulnerability is detected
+- Displays time remaining or overdue status for each vulnerability
+- Highlights SLA violations on the Dashboard
+- Includes SLA status in the Vulnerabilities and Remediations pages
+
+
+## Using SLA Data
+
+### Dashboard Monitoring
+
+The Dashboard shows:
+- Total SLA violations across all severities
+- Trend of violations over time
+- Percentage of vulnerabilities resolved within SLA
+
+### Filtering by SLA
+
+Use SLA filters to:
+- View all overdue vulnerabilities
+- Find issues approaching their deadline
+- Prioritize work based on time remaining
+
+
+### Considerations When Setting SLAs
+
+<AccordionGroup>
+  <Accordion title="Regulatory Compliance">
+    Ensure your SLA settings meet industry regulations and compliance requirements:
+    - PCI DSS often requires critical vulnerabilities to be addressed within 30 days
+    - HIPAA and other healthcare regulations may have stricter requirements
+    - Financial services may need faster response times
+  </Accordion>
+
+  <Accordion title="Team Capacity">
+    Set realistic SLAs based on your team's capacity:
+    - Consider your team size and expertise
+    - Account for testing and deployment time
+    - Factor in existing workload and priorities
+    - Allow buffer time for complex remediations
+  </Accordion>
+
+  <Accordion title="Risk Tolerance">
+    Align SLAs with your organization's risk appetite:
+    - More risk-averse organizations may need tighter SLAs
+    - Consider the nature of your business and data sensitivity
+    - Balance security needs with operational practicality
+  </Accordion>
+
+  <Accordion title="Resource Availability">
+    Consider practical constraints:
+    - Availability of development resources
+    - Testing and QA requirements
+    - Deployment windows and schedules
+    - Dependencies on third-party vendors
+  </Accordion>
+</AccordionGroup>
+
+## Example SLA Configurations
+
+### Highly Regulated Environment
+- Critical: 1 day
+- High: 7 days
+- Medium: 14 days
+- Low: 30 days
+
+### Standard Corporate Environment
+- Critical: 3 days
+- High: 14 days
+- Medium: 30 days
+- Low: 90 days
+
+### Startup/Aggressive Timeline
+- Critical: 2 days
+- High: 7 days
+- Medium: 21 days
+- Low: 60 days
+
+### Conservative Approach
+- Critical: 7 days
+- High: 30 days
+- Medium: 60 days
+- Low: 180 days
+
+Choose the configuration that best matches your organization's needs and regulatory requirements.
