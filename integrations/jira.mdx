@@ -5,95 +5,156 @@ description: "Sync vulnerabilities and remediations with Jira tickets"
 
 ## Overview
 
-The Jira integration connects Backline with your Jira instance, allowing you to automatically create tickets for vulnerabilities, track remediation work, and keep your security and development workflows in sync.
+Link your Jira projects to automatically create and update issues based on Backline Findings and Remediations.
 
 ## What You Can Do
 
 With the Jira integration, Backline can:
-- Automatically create Jira tickets for vulnerabilities
-- Sync vulnerability status with Jira issue status
-- Link remediations to existing Jira tickets
-- Update tickets when vulnerabilities are resolved
+- Automatically create and update Jira issues for vulnerabilities
+- Update tickets when pull requests are opened for remediation
+- Update tickets when pull requests are merged and remediation is resolved
+- Add Jira ticket references to associated pull request descriptions
 - Track remediation work in your team's existing workflow
 
 ## Prerequisites
 
 Before connecting Jira, ensure you have:
-- A Jira account (Cloud or Server)
-- Permission to create and manage issues
-- Admin access to install integrations (for Jira Cloud)
-- API token or credentials (for Jira Server)
+- A Jira Cloud instance
+- Ability to create a service account in your Jira Cloud domain
+- Access to generate API tokens
+- Your Atlassian Cloud ID
 
 ## Connecting Jira
 
 <Steps>
-  <Step title="Open Integration Hub">
-    Navigate to Integrations from the main menu.
+  <Step title="Create Service Account">
+    Create a dedicated service account in your Jira Cloud domain.
+  </Step>
+  <Step title="Generate API Token">
+    Generate an API token from the service account. Visit: https://id.atlassian.com/manage-profile/security/api-tokens
+
+    Add the needed scopes (Classic or Granular - see below), generate the token, and copy it.
+  </Step>
+  <Step title="Get Cloud ID">
+    Retrieve your Atlassian Cloud ID. Follow the instructions at: https://support.atlassian.com/jira/kb/retrieve-my-atlassian-sites-cloud-id/
+  </Step>
+  <Step title="Navigate to Integrations">
+    In Backline, go to the Integration Hub from the main menu.
   </Step>
   <Step title="Select Jira">
     Find and click on the Jira integration card.
   </Step>
-  <Step title="Choose Instance Type">
-    Select Jira Cloud or Jira Server/Data Center.
+  <Step title="Enter Credentials">
+    Provide your connection details:
+    - **API Token**: The token you generated in Step 2
+    - **Cloud ID**: Your Atlassian Cloud ID from Step 3
+    - **Email Address**: The email address of the service account used to generate the token
   </Step>
-  <Step title="Authorize">
-    Follow the authorization flow for your Jira instance type.
-  </Step>
-  <Step title="Configure Settings">
-    Select your Jira project and configure ticket creation preferences.
-  </Step>
-  <Step title="Complete">
-    Finish the setup and return to Backline.
+  <Step title="Verify Connection">
+    Click **Connect** to verify your credentials. Once verified, you'll move to the Configuration tab.
   </Step>
 </Steps>
 
-## Permissions Required
-
-Backline needs the following Jira permissions:
-- Create and edit issues
-- Read project and issue information
-- Add comments to issues
-- Transition issue status
-
 <Note>
-  These permissions enable Backline to create and manage security-related tickets in your Jira projects.
+  Backline supports Jira Cloud only.
 </Note>
 
-## Ticket Creation
+## API Token Scopes
 
-Configure how Backline creates Jira tickets:
-- **Automatic**: Create tickets for all vulnerabilities above a certain severity
-- **Manual**: Create tickets on demand from the Backline interface
-- **Project Selection**: Choose which Jira project receives tickets
-- **Issue Type**: Configure the issue type for vulnerability tickets
+When creating your API token, you can choose between Classic or Granular scopes:
 
-## Status Synchronization
+### Classic Scopes
 
-Keep Backline and Jira in sync:
-- When a vulnerability is resolved in Backline, the Jira ticket is updated
-- When a Jira ticket is closed, the vulnerability status updates in Backline
-- Comments and updates flow between both systems
+```
+read:jira-work
+read:jira-user
+write:jira-work
+```
+
+### Granular Scopes
+
+```
+read:avatar:jira
+read:board-scope:jira-software
+read:comment:jira
+read:comment.property:jira
+read:custom-field-contextual-configuration:jira
+read:field.default-value:jira
+read:group:jira
+read:issue:jira
+read:issue-details:jira
+read:issue-field-values:jira
+read:issue-type:jira
+read:issue-type.property:jira
+read:issue-type-screen-scheme:jira
+read:label:jira
+read:project:jira
+read:project-role:jira
+read:project.component:jira-platform
+read:screen-scheme:jira
+read:screen-tab:jira
+read:screenable-field:jira
+read:sprint:jira-software
+read:status:jira
+read:user:jira
+write:comment:jira
+write:issue:jira
+```
+
+## Configuring Projects
+
+After connecting, you'll need to configure which Jira projects Backline should use:
+
+<Steps>
+  <Step title="Select Jira Project">
+    In the Configuration tab, choose a Jira Project from the list of available projects.
+  </Step>
+  <Step title="Choose Issue Type">
+    Select the desired issue type you want Backline to create or update for vulnerability tickets.
+  </Step>
+  <Step title="Map Fields">
+    Once the issue type is chosen, the list of mandatory and optional fields from Jira will appear. You must map each Jira field to one of the following:
+    - A value from Jira
+    - A field from Backline
+    - A manually added value
+
+    **Important**: Special fields such as Severity and Priority must be mapped to internal Backline fields.
+  </Step>
+  <Step title="Save Configuration">
+    Complete the field mapping and save your project configuration.
+  </Step>
+</Steps>
+
+## Automatic Updates
+
+Once a scanned vulnerability is associated with a Jira ticket, Backline will automatically:
+- Update the ticket when a pull request is opened for remediation
+- Update the ticket when the pull request is merged and remediation is resolved
+- Add the Jira ticket reference to the associated pull request description
 
 ## Managing the Integration
 
-### Updating Configuration
-To change Jira settings:
-1. Open the Integration Hub
-2. Click on the Jira integration
-3. Modify your project or ticket preferences
-4. Save changes
+### Managing Projects
 
-### Disconnecting
-To remove the Jira integration:
-1. Go to the Integration Hub
-2. Click on the Jira integration
-3. Select **Disconnect**
-4. Confirm the disconnection
+To view and manage your connected Jira projects:
 
-<Warning>
-  Disconnecting will stop automatic ticket creation, but existing linked tickets will remain in Jira.
-</Warning>
+<Steps>
+  <Step title="Open Project Management">
+    From the Jira Integration card, click the **three dots menu** and choose **Manage Project**.
+  </Step>
+  <Step title="View Connected Projects">
+    You'll see all connected Jira projects listed.
+  </Step>
+  <Step title="Edit or Delete">
+    For each connected project, you can:
+    - **Edit** the configuration to modify field mappings or issue types
+    - **Delete** the project to remove the connection
+  </Step>
+  <Step title="Add More Projects">
+    Click **Add Project** to configure additional Jira projects.
+  </Step>
+</Steps>
 
-## Additional Configuration
-
-*More detailed configuration options will be available here.*
+<Tip>
+  Connect a messaging integration like Slack to receive notifications if there's an issue connecting or updating a ticket during the remediation process.
+</Tip>

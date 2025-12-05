@@ -1,103 +1,68 @@
 ---
-title: "npm Registry Integration"
+title: "npm Integration"
 description: "Monitor npm packages for vulnerabilities"
 ---
 
 ## Overview
 
-The npm registry integration enables Backline to monitor your npm packages for security vulnerabilities. Stay informed about security issues in your JavaScript and Node.js dependencies.
+Use this integration to grant Backline read-only access to your private NPM registry. This allows Backline to work with repositories that depend on packages hosted there.
 
 ## What You Can Do
 
 With the npm integration, Backline can:
-- Scan npm packages for known vulnerabilities
-- Monitor package dependencies
-- Track security advisories
-- Identify outdated packages with security fixes
-- Provide upgrade recommendations
+- Access private npm packages required by your repositories
+- Analyze dependencies from your private registry
+- Work with repositories that depend on packages hosted in your private registry
 
 ## Prerequisites
 
 Before connecting npm, ensure you have:
-- npm packages in use across your projects
-- Access to your npm registry (public or private)
-- npm authentication token (for private registries)
+- A private npm registry
+- Ability to generate read-only access tokens for your registry
+- The registry URL for your npm instance
 
-## Connecting npm Registry
+## Connecting npm
 
 <Steps>
+  <Step title="Generate Read-Only Token">
+    In your npm registry, create a read-only access token. This token will allow Backline to access your private packages without modification permissions.
+  </Step>
+  <Step title="Copy Registry URL">
+    Get the URL for your private npm registry (e.g., https://registry.npmjs.org/).
+  </Step>
   <Step title="Navigate to Integrations">
-    Go to the Integration Hub from the main menu.
+    In Backline, go to the Integration Hub from the main menu.
   </Step>
   <Step title="Select npm">
     Find and click on the npm integration card.
   </Step>
-  <Step title="Choose Registry Type">
-    Select public npm registry or enter private registry URL.
+  <Step title="Enter Credentials">
+    Provide your registry details:
+    - **Registry Token**: Your read-only access token
+    - **Registry URL**: The URL of your private npm registry
   </Step>
-  <Step title="Add Authentication">
-    For private registries, provide your npm authentication token.
-  </Step>
-  <Step title="Test Connection">
-    Click **Test Connection** to verify setup.
-  </Step>
-  <Step title="Save">
-    Click **Save** to complete the integration.
+  <Step title="Complete Connection">
+    Click **Connect** to complete the integration setup.
   </Step>
 </Steps>
 
 ## After Connection
 
 Once npm is connected, Backline will:
-1. Analyze package.json and lock files from connected repositories
-2. Check packages against vulnerability databases
-3. Identify security issues in dependencies
-4. Recommend version upgrades and patches
-
-## Vulnerability Detection
-
-Backline identifies:
-- Known security vulnerabilities in npm packages
-- Outdated packages with available security patches
-- Deprecated packages
-- Transitive dependency vulnerabilities
+1. Use the provided credentials to access your private registry
+2. Retrieve packages needed for dependency analysis in your repositories
+3. Analyze dependencies from both public and private npm packages
 
 <Note>
-  Backline automatically scans packages when it detects package.json or package-lock.json files in your connected repositories.
+  The read-only token ensures Backline can only access packages without making any modifications to your registry.
 </Note>
-
-## Remediation
-
-For npm vulnerabilities, Backline can:
-- Suggest safe package version upgrades
-- Create pull requests updating package.json and lock files
-- Highlight breaking changes in upgrades
-- Provide alternative package recommendations
-
-<Tip>
-  Enable automated remediation to let Backline create pull requests for safe npm package updates.
-</Tip>
 
 ## Managing the Integration
 
 ### Updating Settings
-To modify npm configuration:
+
+To modify npm registry credentials:
 1. Open the Integration Hub
-2. Click on the npm integration
-3. Update registry URL or authentication
-4. Test and save changes
-
-### Disconnecting
-To remove the npm integration:
-1. Go to the Integration Hub
-2. Click on the npm integration
-3. Select **Disconnect**
-4. Confirm the disconnection
-
-<Warning>
-  Disconnecting stops npm vulnerability monitoring. Existing npm-related findings remain but won't be updated.
-</Warning>
-
-## Additional Configuration
-
-*More detailed configuration options will be available here.*
+2. Click **Configure** on the npm integration card
+3. Update the Registry Token or Registry URL as needed
+4. Save your changes

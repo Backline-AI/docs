@@ -5,13 +5,12 @@ description: "Connect your GitLab repositories to Backline"
 
 ## Overview
 
-The GitLab integration enables Backline to access your GitLab repositories, identify security vulnerabilities, and create merge requests with automated fixes. Connect GitLab to unlock powerful automated remediation capabilities for your projects.
+GitLab is a platform for version control and collaborative DevOps. This integration connects Backline with GitLab to automatically create merge requests with secure fixes.
 
 ## What You Can Do
 
 With the GitLab integration, Backline can:
 - Access your GitLab projects and groups
-- Scan repositories for security vulnerabilities
 - Analyze dependencies and detect outdated packages
 - Create merge requests with security patches
 - Track remediation progress across your GitLab projects
@@ -19,55 +18,68 @@ With the GitLab integration, Backline can:
 ## Prerequisites
 
 Before connecting GitLab, ensure you have:
-- A GitLab account (GitLab.com or self-hosted)
-- Maintainer or Owner role in the projects you want to connect
-- API access enabled for your GitLab instance
+- A GitLab organization
+- Ability to create a service account with Admin role
+- Access to generate personal access tokens for the service account
 
 ## Connecting GitLab
 
 <Steps>
-  <Step title="Open Integration Hub">
-    Navigate to Integrations from the main menu.
+  <Step title="Create Service Account">
+    Log in to your GitLab organization and create a designated account for Backline. This service account should have Admin role scoped to a single group.
+  </Step>
+  <Step title="Configure Project Access">
+    Configure the service account's access for the Projects you want Backline to remediate.
+  </Step>
+  <Step title="Create Personal Access Token">
+    In GitLab, create a unique personal access token with the following settings:
+    - **Token name**: Give it a unique, identifiable name (e.g., "Backline Integration")
+    - **Expiration date**: Set an appropriate expiration date for your security policy
+    - **Scopes**: Select the required scopes (detailed below)
+  </Step>
+  <Step title="Copy Token Value">
+    Copy the generated token value. You won't be able to see it again after leaving the page.
+  </Step>
+  <Step title="Go to Integration Hub">
+    In Backline, navigate to Integrations from the main menu.
   </Step>
   <Step title="Select GitLab">
     Find and click on the GitLab integration card.
   </Step>
-  <Step title="Start Connection">
-    Click **Connect** to begin the authorization process.
+  <Step title="Enter Token">
+    Provide your Personal Access Token in the form field.
   </Step>
-  <Step title="Authorize Access">
-    Log in to GitLab and approve Backline's access request.
-  </Step>
-  <Step title="Select Projects">
-    Choose which projects or groups Backline should access.
-  </Step>
-  <Step title="Confirm">
-    Complete the connection and return to Backline.
+  <Step title="Verify Connection">
+    Click **Connect** to verify your credentials. Once verified, Backline will securely link to your GitLab group and enable automated remediation.
   </Step>
 </Steps>
 
-## Permissions Required
+## Personal Access Token Configuration
 
-Backline needs the following GitLab permissions:
-- Read access to repositories and project information
-- Write access to merge requests
-- Read access to dependency information
+Use a GitLab Personal Access Token (PAT) with an Admin role to allow cloning repositories, creating branches, committing changes, and managing merge requests.
+
+<Warning>
+  The token's permissions in GitLab determine which repositories are included. Ensure it covers all projects you want to remediate.
+</Warning>
+
+### Required Scopes
+
+Configure your GitLab personal access token with the following scopes:
+
+- `api` - Full API access for managing projects, merge requests, and webhooks
+- `read_repository` - Clone and read repository content
+- `write_repository` - Create branches, commit changes, and push code
 
 <Note>
-  These permissions enable Backline to scan your code and submit security fixes via merge requests.
+  These scopes enable Backline to access your repositories, analyze code, and create merge requests with security fixes.
 </Note>
 
 ## After Connection
 
 Once GitLab is connected, Backline will:
 1. Discover and catalog your projects
-2. Begin vulnerability scanning
-3. Generate remediation recommendations
-4. Create merge requests for approved fixes
-
-<Tip>
-  For self-hosted GitLab instances, ensure Backline can reach your server through your network configuration.
-</Tip>
+2. Generate remediation plans for vulnerabilities from those repositories
+3. Create merge requests for approved fixes
 
 ## Managing the Integration
 
@@ -76,18 +88,3 @@ To modify project access:
 1. Visit your GitLab account settings
 2. Navigate to Applications
 3. Find Backline and adjust permissions
-
-### Disconnecting
-To remove the GitLab integration:
-1. Open the Integration Hub
-2. Click on the GitLab integration
-3. Select **Disconnect**
-4. Confirm the disconnection
-
-<Warning>
-  Disconnecting will halt all automated scanning and remediation for GitLab projects.
-</Warning>
-
-## Additional Configuration
-
-*More detailed configuration options will be available here.*
