@@ -1,0 +1,121 @@
+---
+title: "Remediations"
+description: "Track and manage security remediation efforts"
+---
+
+## Overview
+
+The Remediations page provides a comprehensive view of all ongoing efforts to fix security vulnerabilities across your organization. Remediations can be fully automated by the Backline agents or in Hybrid mode, which requires your collaboration with the agents. Take action, track progress, priorities, and the status of automated and hybrid remediation activities.
+
+## What You'll See
+
+### Remediation Metrics
+
+The top of the page displays key metrics:
+- Total active remediations and distribution by mode
+- SLA Violations 
+- Associated Vulnerabilities to be resolved by existing remediations
+- Resolved remediations over time 
+- Median Time to Remediate in the last 30 days 
+
+### Remediation List
+
+Each remediation is displayed as a card showing:
+- **Title**: Description of what's being fixed
+- **Type**: Vulnerability type being addressed
+- **Mode**: Remediation approach (Automated or Hybrid)
+- **Priority**: Importance level for this remediation
+- **Origin**: Repository where the fix is being applied
+- **Assigned Vulnerabilities**: Number of vulnerabilities this remediation addresses
+- **Creation Date**: When the remediation was initiated
+- **SLA Status**: Compliance with resolution timelines
+- **Active Agent**: AI agent working on this remediation (if applicable)
+- **Status**: Current state (In Progress, Pending Approval, Resolved, etc.)
+
+## Remediation Modes
+
+<CardGroup cols={3}>
+  <Card title="Automated" icon="robot">
+    Backline's AI agents automatically create and submit fixes.
+  </Card>
+  <Card title="Hybrid" icon="handshake">
+    AI-suggested fixes that require human review and approval.
+  </Card>
+</CardGroup>
+
+<Note>
+  Hybrid mode remediations will display an **Action Required** button when they need your attention.
+</Note>
+
+## Filtering and Search
+
+Quickly find specific remediations using these filter options:
+
+<AccordionGroup>
+  <Accordion title="Available Filters">
+    - **Text Search**: Search by remediation title or description
+    - **Mode**: Filter by remediation mode (Automated or Hybrid)
+    - **Priority**: Show specific priority levels
+    - **Origin**: Filter by repository name
+    - **Time to SLA**: Filter by SLA compliance time
+    - **Status**: Filter by current remediation status
+  </Accordion>
+</AccordionGroup>
+
+## Working with Remediations
+
+### Viewing Details
+
+Click on any remediation card to open a detailed drawer with multiple tabs:
+
+1. **Details**: Complete information about the remediation
+2. **Packages**: List of affected packages and dependencies
+3. **Vulnerabilities**: All vulnerabilities addressed by this remediation
+4. **Remediation Plan**: Step-by-step plan for implementing the fix
+
+### Taking Action
+
+From the remediation drawer, you can:
+- Review proposed changes and fixes
+- Access associated pull requests
+- Monitor remediation progress
+- View the complete list of vulnerabilities being resolved
+- Follow the AI agent's work in real-time from the Remediation Plan tab (for automated remediations)
+
+## Navigation
+
+<Steps>
+  <Step title="Access the Page">
+    Click **Remediations** in the main navigation menu.
+  </Step>
+  <Step title="Browse or Filter">
+    Scroll through the list or use filters to find specific remediations.
+  </Step>
+  <Step title="View Details">
+    Click on any remediation card to see comprehensive information and track progress.
+  </Step>
+  <Step title="Take Action">
+    For Hybrid mode remediations, review and approve suggested fixes using the Action Required button.
+  </Step>
+</Steps>
+
+## Understanding Priorities
+
+Remediations are prioritized based on:
+- Severity of vulnerabilities being addressed
+- Number of affected systems
+- SLA requirements
+
+<Tip>
+  Focus on high-priority remediations first to maximize the security impact of your team's efforts.
+</Tip>
+
+## Pull Request Integration
+
+When remediations generate pull requests, you'll see:
+- Direct links to PRs in your SCM platform
+- Ability to review changes before merging
+
+<Note>
+  Automated remediations create pull requests that your team can review and merge following your standard development workflow.
+</Note>

@@ -1,0 +1,93 @@
+---
+title: "GitLab Integration"
+description: "Connect your GitLab repositories to Backline"
+---
+
+## Overview
+
+The GitLab integration enables Backline to access your GitLab repositories, identify security vulnerabilities, and create merge requests with automated fixes. Connect GitLab to unlock powerful automated remediation capabilities for your projects.
+
+## What You Can Do
+
+With the GitLab integration, Backline can:
+- Access your GitLab projects and groups
+- Scan repositories for security vulnerabilities
+- Analyze dependencies and detect outdated packages
+- Create merge requests with security patches
+- Track remediation progress across your GitLab projects
+
+## Prerequisites
+
+Before connecting GitLab, ensure you have:
+- A GitLab account (GitLab.com or self-hosted)
+- Maintainer or Owner role in the projects you want to connect
+- API access enabled for your GitLab instance
+
+## Connecting GitLab
+
+<Steps>
+  <Step title="Open Integration Hub">
+    Navigate to Integrations from the main menu.
+  </Step>
+  <Step title="Select GitLab">
+    Find and click on the GitLab integration card.
+  </Step>
+  <Step title="Start Connection">
+    Click **Connect** to begin the authorization process.
+  </Step>
+  <Step title="Authorize Access">
+    Log in to GitLab and approve Backline's access request.
+  </Step>
+  <Step title="Select Projects">
+    Choose which projects or groups Backline should access.
+  </Step>
+  <Step title="Confirm">
+    Complete the connection and return to Backline.
+  </Step>
+</Steps>
+
+## Permissions Required
+
+Backline needs the following GitLab permissions:
+- Read access to repositories and project information
+- Write access to merge requests
+- Read access to dependency information
+
+<Note>
+  These permissions enable Backline to scan your code and submit security fixes via merge requests.
+</Note>
+
+## After Connection
+
+Once GitLab is connected, Backline will:
+1. Discover and catalog your projects
+2. Begin vulnerability scanning
+3. Generate remediation recommendations
+4. Create merge requests for approved fixes
+
+<Tip>
+  For self-hosted GitLab instances, ensure Backline can reach your server through your network configuration.
+</Tip>
+
+## Managing the Integration
+
+### Updating Access
+To modify project access:
+1. Visit your GitLab account settings
+2. Navigate to Applications
+3. Find Backline and adjust permissions
+
+### Disconnecting
+To remove the GitLab integration:
+1. Open the Integration Hub
+2. Click on the GitLab integration
+3. Select **Disconnect**
+4. Confirm the disconnection
+
+<Warning>
+  Disconnecting will halt all automated scanning and remediation for GitLab projects.
+</Warning>
+
+## Additional Configuration
+
+*More detailed configuration options will be available here.*

@@ -1,0 +1,157 @@
+---
+title: "Integration Hub"
+description: "Connect your development tools and security scanners to Backline"
+---
+
+## Overview
+
+The Integration Hub is your central location for connecting Backline with your existing development and security tools. By integrating with your source control management (SCM) platforms, security scanners, and collaboration tools, Backline can automatically collect vulnerabilities and streamline your remediation workflow.
+
+## Accessing the Integration Hub
+
+<Steps>
+  <Step title="Navigate to Integrations">
+    Click **Integrations** in the main navigation menu.
+  </Step>
+  <Step title="Browse Available Integrations">
+    View all available integration options displayed as cards.
+  </Step>
+  <Step title="Select an Integration">
+    Click on any integration card to begin the connection process.
+  </Step>
+</Steps>
+
+## Available Integration Types
+
+### Source Control Management (SCM)
+Connect your code repositories to enable Backline to access your codebase and create remediation pull requests:
+- [GitHub](/integrations/github)
+- [GitLab](/integrations/gitlab)
+- [Bitbucket](/integrations/bitbucket)
+
+### Container Registries
+Integrate container registries to scan images for vulnerabilities:
+- [Amazon ECR](/integrations/ecr)
+- [Azure ACR](/integrations/acr)
+- [JFrog Artifactory](/integrations/jfrog)
+
+### Package Registries
+Connect package registries to monitor dependencies:
+- [npm](/integrations/npm)
+
+### Collaboration Tools
+Link collaboration platforms for notifications and ticket management:
+- [Slack](/integrations/slack)
+- [Jira](/integrations/jira)
+
+## Connecting an Integration
+
+### OAuth-Based Integrations
+
+For integrations using OAuth (GitHub, GitLab, Bitbucket, etc.):
+
+<Steps>
+  <Step title="Click Connect">
+    Select the integration card and click the **Connect** button.
+  </Step>
+  <Step title="Authorize">
+    You'll be redirected to the service provider's authorization page.
+  </Step>
+  <Step title="Grant Permissions">
+    Review and approve the requested permissions.
+  </Step>
+  <Step title="Complete Setup">
+    You'll be redirected back to Backline with the integration connected.
+  </Step>
+</Steps>
+
+## Managing Integrations
+
+### View Integration Status
+
+Each integration card displays:
+- **Connection Status**: Connected or Not Connected
+- **Configuration Details**: Key settings at a glance
+- **Last Sync**: When data was last updated (for connected integrations)
+
+### Edit Integration Settings
+
+<Note>
+  Most integrations cannot be edited once fully connected. To change settings, disconnect and reconnect the integration.
+</Note>
+
+### Disconnect an Integration
+
+<Steps>
+  <Step title="Open Integration">
+    Click on the connected integration card.
+  </Step>
+  <Step title="Find Disconnect Option">
+    Look for the **Disconnect** button in the integration dialog.
+  </Step>
+  <Step title="Confirm">
+    Confirm that you want to remove the integration.
+  </Step>
+</Steps>
+
+<Warning>
+  Disconnecting an integration will stop data collection from that source. Existing vulnerabilities from that source will remain in Backline but won't be updated.
+</Warning>
+
+## Integration Dialog
+
+When configuring an integration, you'll see a dialog with two tabs:
+
+### Overview Tab
+- Description of the integration
+- Benefits and features
+- Requirements and prerequisites
+- Links to relevant documentation
+
+### Configuration Tab
+- Connection settings and credentials
+- OAuth authorization buttons
+- Test connection functionality
+- Save and cancel options
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Start with SCM">
+    Connect your source control management platform first (GitHub, GitLab, or Bitbucket) as it's required for automated remediation features.
+  </Accordion>
+
+  <Accordion title="Add Multiple Scanners">
+    Connect all your security scanning tools to get a comprehensive view of vulnerabilities across your entire stack.
+  </Accordion>
+
+  <Accordion title="Test Connections">
+    Always use the **Test Connection** button before saving to ensure your configuration is correct.
+  </Accordion>
+
+  <Accordion title="Secure Your Credentials">
+    When using API keys or tokens, ensure they have only the minimum required permissions and store them securely.
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+### Connection Failed
+
+If an integration fails to connect:
+1. Verify your credentials are correct
+2. Check that the service is accessible from your network
+3. Ensure you have the necessary permissions in the external service
+4. Review any error messages for specific guidance
+
+### OAuth Authorization Issues
+
+If OAuth authorization fails:
+1. Clear your browser cache and cookies
+2. Ensure pop-ups are allowed for Backline
+3. Try the authorization process again
+4. Check that your account has admin rights in the external service
+
+<Tip>
+  Need help? Each integration's Overview tab contains specific guidance and links to detailed setup instructions.
+</Tip>

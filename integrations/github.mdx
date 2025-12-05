@@ -1,0 +1,94 @@
+---
+title: "GitHub Integration"
+description: "Connect your GitHub repositories to Backline"
+---
+
+## Overview
+
+The GitHub integration allows Backline to access your repositories, scan for vulnerabilities, and automatically create pull requests with security fixes. This integration is essential for enabling automated remediation workflows.
+
+## What You Can Do
+
+With the GitHub integration, Backline can:
+- Access your repositories to scan for security vulnerabilities
+- Analyze code dependencies and packages
+- Create pull requests with automated security fixes
+- Track remediation status across your GitHub projects
+- Monitor vulnerability trends in your codebase
+
+## Prerequisites
+
+Before connecting GitHub, ensure you have:
+- A GitHub account with appropriate permissions
+- Admin access to the repositories you want to connect
+- Organization owner rights (if connecting organization repositories)
+
+## Connecting GitHub
+
+<Steps>
+  <Step title="Navigate to Integrations">
+    Go to the Integration Hub from the main menu.
+  </Step>
+  <Step title="Select GitHub">
+    Find and click on the GitHub integration card.
+  </Step>
+  <Step title="Authorize">
+    Click **Connect** to start the OAuth authorization flow. You'll be redirected to GitHub.
+  </Step>
+  <Step title="Grant Access">
+    Review the requested permissions and click **Authorize** on GitHub.
+  </Step>
+  <Step title="Install App">
+    Choose which repositories to grant access to (all repositories or selected ones).
+  </Step>
+  <Step title="Complete">
+    You'll be redirected back to Backline with GitHub connected.
+  </Step>
+</Steps>
+
+## Permissions Required
+
+Backline requires the following GitHub permissions:
+- Read access to code and metadata
+- Write access to pull requests
+- Read access to security alerts (if available)
+
+<Note>
+  These permissions allow Backline to scan your code and create remediation pull requests. Your code is never stored outside your infrastructure.
+</Note>
+
+## After Connection
+
+Once connected, Backline will:
+1. Begin scanning connected repositories
+2. Collect vulnerability information
+3. Start generating remediation suggestions
+4. Create pull requests for automated fixes
+
+<Tip>
+  Initial scanning may take several minutes depending on repository size. Check the Dashboard for progress.
+</Tip>
+
+## Managing the Integration
+
+### Changing Repository Access
+To add or remove repositories:
+1. Visit your GitHub Settings
+2. Navigate to Applications → Installed GitHub Apps
+3. Find Backline and click **Configure**
+4. Adjust repository access as needed
+
+### Disconnecting
+To disconnect GitHub from Backline:
+1. Go to the Integration Hub
+2. Click on the GitHub integration
+3. Select **Disconnect**
+4. Confirm your choice
+
+<Warning>
+  Disconnecting will stop all automated remediation activities and prevent new vulnerability scanning.
+</Warning>
+
+## Additional Configuration
+
+*More detailed configuration options will be available here.*

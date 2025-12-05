@@ -1,0 +1,93 @@
+---
+title: "Bitbucket Integration"
+description: "Connect your Bitbucket repositories to Backline"
+---
+
+## Overview
+
+The Bitbucket integration allows Backline to connect with your Bitbucket Cloud or Bitbucket Server repositories, scan for security vulnerabilities, and create pull requests with automated remediation fixes.
+
+## What You Can Do
+
+With the Bitbucket integration, Backline can:
+- Access your Bitbucket repositories and workspaces
+- Scan code for security vulnerabilities
+- Analyze dependencies and identify risks
+- Create pull requests with automated security fixes
+- Monitor remediation status across Bitbucket projects
+
+## Prerequisites
+
+Before connecting Bitbucket, ensure you have:
+- A Bitbucket account (Cloud or Server)
+- Admin access to the repositories you want to connect
+- Workspace admin rights (for Bitbucket Cloud)
+
+## Connecting Bitbucket
+
+<Steps>
+  <Step title="Go to Integration Hub">
+    Navigate to Integrations from the main menu.
+  </Step>
+  <Step title="Select Bitbucket">
+    Find and click on the Bitbucket integration card.
+  </Step>
+  <Step title="Begin Setup">
+    Click **Connect** to start the authorization flow.
+  </Step>
+  <Step title="Authorize">
+    Log in to Bitbucket and grant Backline the requested permissions.
+  </Step>
+  <Step title="Choose Repositories">
+    Select which repositories Backline should access.
+  </Step>
+  <Step title="Complete">
+    Finish the setup and return to Backline.
+  </Step>
+</Steps>
+
+## Permissions Required
+
+Backline requires the following Bitbucket permissions:
+- Read access to repositories
+- Write access to pull requests
+- Read access to repository metadata
+
+<Note>
+  These permissions allow Backline to scan your repositories and create pull requests for security fixes.
+</Note>
+
+## After Connection
+
+Once Bitbucket is connected, Backline will:
+1. Index your repositories
+2. Start scanning for vulnerabilities
+3. Generate remediation plans
+4. Create pull requests for automated fixes
+
+<Tip>
+  For Bitbucket Server installations, ensure your server is accessible from Backline's infrastructure or configure appropriate network access.
+</Tip>
+
+## Managing the Integration
+
+### Modifying Repository Access
+To change which repositories Backline can access:
+1. Go to your Bitbucket workspace settings
+2. Navigate to OAuth consumers
+3. Find Backline and adjust permissions
+
+### Disconnecting
+To disconnect Bitbucket:
+1. Open the Integration Hub
+2. Click on the Bitbucket integration
+3. Select **Disconnect**
+4. Confirm your decision
+
+<Warning>
+  Disconnecting will stop all vulnerability scanning and automated remediation for Bitbucket repositories.
+</Warning>
+
+## Additional Configuration
+
+*More detailed configuration options will be available here.*

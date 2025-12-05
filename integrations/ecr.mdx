@@ -1,0 +1,107 @@
+---
+title: "Amazon ECR Integration"
+description: "Scan container images in Amazon Elastic Container Registry"
+---
+
+## Overview
+
+The Amazon ECR (Elastic Container Registry) integration allows Backline to scan your container images for security vulnerabilities. Identify and remediate security issues in your Docker images before they reach production.
+
+## What You Can Do
+
+With the ECR integration, Backline can:
+- Scan container images for vulnerabilities
+- Analyze image layers and dependencies
+- Detect outdated base images
+- Track vulnerabilities across image versions
+- Monitor container security compliance
+
+## Prerequisites
+
+Before connecting ECR, ensure you have:
+- An AWS account with ECR repositories
+- AWS credentials (Access Key ID and Secret Access Key)
+- IAM permissions to access ECR
+- Repositories you want to scan
+
+## Connecting ECR
+
+<Steps>
+  <Step title="Go to Integration Hub">
+    Navigate to Integrations from the main menu.
+  </Step>
+  <Step title="Select ECR">
+    Find and click on the Amazon ECR integration card.
+  </Step>
+  <Step title="Enter AWS Credentials">
+    Provide your AWS Access Key ID and Secret Access Key.
+  </Step>
+  <Step title="Select Region">
+    Choose the AWS region where your ECR repositories are located.
+  </Step>
+  <Step title="Test Connection">
+    Click **Test Connection** to verify your credentials.
+  </Step>
+  <Step title="Save">
+    Click **Save** to complete the integration.
+  </Step>
+</Steps>
+
+## Required IAM Permissions
+
+Your AWS credentials need the following ECR permissions:
+```
+ecr:GetAuthorizationToken
+ecr:DescribeRepositories
+ecr:DescribeImages
+ecr:BatchGetImage
+ecr:GetDownloadUrlForLayer
+```
+
+<Tip>
+  Create a dedicated IAM user for Backline with only the necessary ECR permissions following the principle of least privilege.
+</Tip>
+
+## After Connection
+
+Once ECR is connected, Backline will:
+1. Discover your ECR repositories
+2. Begin scanning container images
+3. Identify vulnerabilities in image layers
+4. Generate remediation recommendations
+
+## Image Scanning
+
+Backline scans:
+- All tagged images in connected repositories
+- Base image vulnerabilities
+- Package and dependency vulnerabilities within containers
+- Configuration issues
+
+<Note>
+  Large images may take several minutes to scan initially. Subsequent scans are incremental and faster.
+</Note>
+
+## Managing the Integration
+
+### Updating Credentials
+To change AWS credentials:
+1. Open the Integration Hub
+2. Click on the ECR integration
+3. Enter new credentials
+4. Test and save
+
+### Disconnecting
+To remove the ECR integration:
+1. Go to the Integration Hub
+2. Click on the ECR integration
+3. Select **Disconnect**
+4. Confirm your choice
+
+<Warning>
+  Disconnecting will stop container image scanning. Existing vulnerability data will remain but won't be updated.
+</Warning>
+
+## Additional Configuration
+
+*More detailed configuration options will be available here.*
