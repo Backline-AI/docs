@@ -5,16 +5,15 @@ description: "Connect your GitHub repositories to Backline"
 
 ## Overview
 
-The GitHub integration allows Backline to access your repositories, scan for vulnerabilities, and automatically create pull requests with security fixes. This integration is essential for enabling automated remediation workflows.
+Backline's GitHub integration enables secure, automated pull requests directly in your repositories, streamlining vulnerability remediation through our GitHub App.
 
 ## What You Can Do
 
 With the GitHub integration, Backline can:
-- Access your repositories to scan for security vulnerabilities
+- Access your repositories across multiple organizations
 - Analyze code dependencies and packages
 - Create pull requests with automated security fixes
 - Track remediation status across your GitHub projects
-- Monitor vulnerability trends in your codebase
 
 ## Prerequisites
 
@@ -27,68 +26,80 @@ Before connecting GitHub, ensure you have:
 
 <Steps>
   <Step title="Navigate to Integrations">
-    Go to the Integration Hub from the main menu.
+    In Backline, go to the Integration Hub from the main menu.
   </Step>
   <Step title="Select GitHub">
     Find and click on the GitHub integration card.
   </Step>
-  <Step title="Authorize">
-    Click **Connect** to start the OAuth authorization flow. You'll be redirected to GitHub.
+  <Step title="Install Backline App">
+    Click **Connect** to be redirected to GitHub to install the Backline app.
   </Step>
-  <Step title="Grant Access">
-    Review the requested permissions and click **Authorize** on GitHub.
+  <Step title="Choose Organization">
+    On GitHub, select the target organization where you want to install the Backline app.
   </Step>
-  <Step title="Install App">
-    Choose which repositories to grant access to (all repositories or selected ones).
+  <Step title="Select Repositories">
+    Choose **All repositories** or select specific repositories you want to link to Backline.
   </Step>
-  <Step title="Complete">
-    You'll be redirected back to Backline with GitHub connected.
+  <Step title="Complete Installation">
+    Complete the installation process. You'll be automatically redirected back to Backline with GitHub connected.
   </Step>
 </Steps>
-
-## Permissions Required
-
-Backline requires the following GitHub permissions:
-- Read access to code and metadata
-- Write access to pull requests
-- Read access to security alerts (if available)
-
-<Note>
-  These permissions allow Backline to scan your code and create remediation pull requests. Your code is never stored outside your infrastructure.
-</Note>
 
 ## After Connection
 
 Once connected, Backline will:
-1. Begin scanning connected repositories
-2. Collect vulnerability information
-3. Start generating remediation suggestions
-4. Create pull requests for automated fixes
-
-<Tip>
-  Initial scanning may take several minutes depending on repository size. Check the Dashboard for progress.
-</Tip>
+1. Index your repositories
+2. Generate remediation plans for vulnerabilities from those repositories
+3. Create pull requests for automated fixes
 
 ## Managing the Integration
 
-### Changing Repository Access
-To add or remove repositories:
-1. Visit your GitHub Settings
-2. Navigate to Applications → Installed GitHub Apps
-3. Find Backline and click **Configure**
-4. Adjust repository access as needed
+### Adding Multiple Organizations
+
+You can connect multiple GitHub organizations to Backline:
+
+<Steps>
+  <Step title="Open Integration Details">
+    Go to the GitHub integration card in the Integration Hub and click **Configure** to open the integration details.
+  </Step>
+  <Step title="Add Connection">
+    At the bottom of the integration details, click the **Add Connection** button.
+  </Step>
+  <Step title="Install for New Organization">
+    You'll be taken to GitHub to add a new organization. Follow the same installation process to connect another organization.
+  </Step>
+</Steps>
+
+All connected organizations will be displayed in the integration details page.
+
+### Testing Connections
+
+To verify that a connection is still valid:
+
+1. Open the integration details by clicking **Configure** on the GitHub integration card
+2. Find the organization card you want to test
+3. Click the **three dots menu** on the organization card
+4. Select **Test Connection** to check if the connection is valid
 
 ### Disconnecting
-To disconnect GitHub from Backline:
-1. Go to the Integration Hub
-2. Click on the GitHub integration
-3. Select **Disconnect**
-4. Confirm your choice
+
+To disconnect a GitHub organization:
+
+<Steps>
+  <Step title="Open Integration Menu">
+    In the Integration Hub, click the **three dots menu** on the GitHub integration card.
+  </Step>
+  <Step title="Select Disconnect">
+    Click the **Disconnect** option from the menu.
+  </Step>
+  <Step title="Uninstall on GitHub">
+    You'll be taken to GitHub where you can uninstall the Backline application.
+  </Step>
+  <Step title="Confirm Disconnection">
+    Once you return to Backline, refresh the page to see that the connection to the GitHub organization was disconnected.
+  </Step>
+</Steps>
 
 <Warning>
-  Disconnecting will stop all automated remediation activities and prevent new vulnerability scanning.
+  Disconnecting will stop all automated remediation activities and prevent new vulnerability scanning for that organization.
 </Warning>
-
-## Additional Configuration
-
-*More detailed configuration options will be available here.*

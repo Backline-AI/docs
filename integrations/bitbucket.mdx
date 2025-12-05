@@ -5,13 +5,12 @@ description: "Connect your Bitbucket repositories to Backline"
 
 ## Overview
 
-The Bitbucket integration allows Backline to connect with your Bitbucket Cloud or Bitbucket Server repositories, scan for security vulnerabilities, and create pull requests with automated remediation fixes.
+Backline integrates with Bitbucket to automatically create secure pull requests that remediate known vulnerabilities in your repositories. This streamlines the remediation process and helps keep your codebase secure.
 
 ## What You Can Do
 
 With the Bitbucket integration, Backline can:
 - Access your Bitbucket repositories and workspaces
-- Scan code for security vulnerabilities
 - Analyze dependencies and identify risks
 - Create pull requests with automated security fixes
 - Monitor remediation status across Bitbucket projects
@@ -19,55 +18,68 @@ With the Bitbucket integration, Backline can:
 ## Prerequisites
 
 Before connecting Bitbucket, ensure you have:
-- A Bitbucket account (Cloud or Server)
-- Admin access to the repositories you want to connect
-- Workspace admin rights (for Bitbucket Cloud)
+- A Bitbucket workspace with appropriate access
+- Ability to create a service account with Admin role
+- Access to generate API tokens for the service account
 
 ## Connecting Bitbucket
 
 <Steps>
+  <Step title="Create Service Account">
+    Create a Bitbucket service account with Admin role scoped to a single workspace. This dedicated account will be used exclusively for Backline's integration.
+  </Step>
+  <Step title="Generate API Token">
+    In Bitbucket, navigate to your service account settings and create an API token with the required permissions (listed below).
+  </Step>
   <Step title="Go to Integration Hub">
-    Navigate to Integrations from the main menu.
+    In Backline, navigate to Integrations from the main menu.
   </Step>
   <Step title="Select Bitbucket">
     Find and click on the Bitbucket integration card.
   </Step>
-  <Step title="Begin Setup">
-    Click **Connect** to start the authorization flow.
+  <Step title="Enter Credentials">
+    Provide your service account details:
+    - **Atlassian Account Email**: The email address of your Bitbucket service account
+    - **API Token**: The API token generated in Step 2
   </Step>
-  <Step title="Authorize">
-    Log in to Bitbucket and grant Backline the requested permissions.
-  </Step>
-  <Step title="Choose Repositories">
-    Select which repositories Backline should access.
-  </Step>
-  <Step title="Complete">
-    Finish the setup and return to Backline.
+  <Step title="Verify Connection">
+    Click **Connect** to verify your credentials. Once verified, Backline will securely link to your Bitbucket workspace and enable automated remediation.
   </Step>
 </Steps>
 
-## Permissions Required
+## API Token Configuration
 
-Backline requires the following Bitbucket permissions:
-- Read access to repositories
-- Write access to pull requests
-- Read access to repository metadata
+The API token is used to authenticate with the Bitbucket API. This token must have access to the required repositories, pull requests, pipelines, and webhooks.
+
+### Required Scopes
+
+Configure your Bitbucket API token with the following scopes:
+
+**Read Permissions:**
+- `read:account` - Access account information
+- `read:project:bitbucket` - Read project details
+- `read:pullrequest:bitbucket` - View pull requests
+- `read:repository:bitbucket` - Access repository content
+- `read:user:bitbucket` - Read user information
+- `read:webhook:bitbucket` - View webhook configurations
+- `read:workspace:bitbucket` - Access workspace details
+- `read:pipeline:bitbucket` - Monitor pipeline status
+
+**Write Permissions:**
+- `write:pullrequest:bitbucket` - Create and update pull requests
+- `write:repository:bitbucket` - Make changes to repositories
+- `write:webhook:bitbucket` - Configure webhooks for event notifications
 
 <Note>
-  These permissions allow Backline to scan your repositories and create pull requests for security fixes.
+  These permissions allow Backline to access your repositories and create pull requests for security fixes while maintaining visibility into your workspace structure.
 </Note>
 
 ## After Connection
 
 Once Bitbucket is connected, Backline will:
 1. Index your repositories
-2. Start scanning for vulnerabilities
-3. Generate remediation plans
-4. Create pull requests for automated fixes
-
-<Tip>
-  For Bitbucket Server installations, ensure your server is accessible from Backline's infrastructure or configure appropriate network access.
-</Tip>
+2. Generate remediation plans for vulnerabilities from those repositories
+3. Create pull requests for automated fixes
 
 ## Managing the Integration
 
@@ -76,18 +88,3 @@ To change which repositories Backline can access:
 1. Go to your Bitbucket workspace settings
 2. Navigate to OAuth consumers
 3. Find Backline and adjust permissions
-
-### Disconnecting
-To disconnect Bitbucket:
-1. Open the Integration Hub
-2. Click on the Bitbucket integration
-3. Select **Disconnect**
-4. Confirm your decision
-
-<Warning>
-  Disconnecting will stop all vulnerability scanning and automated remediation for Bitbucket repositories.
-</Warning>
-
-## Additional Configuration
-
-*More detailed configuration options will be available here.*
